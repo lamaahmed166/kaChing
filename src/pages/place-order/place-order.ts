@@ -39,6 +39,7 @@ export class PlaceOrderPage {
   createOrder() {
     let token = this.service.getToken();
     this.customerId = this.service.getId();
+    this.cart = this.service.getCart();
     this.merchantCode = this.cart[0]['merchantCode'];
     let order = {'merchantCode': this.merchantCode, 'customerId': this.customerId, 'orderDesc':this.orderDesc, 'orderExpiry': this.orderExpiry, 'orderAmount': this.orderAmount, 'items': this.cart}; 
     this.fawryService.createOrder(token, order).then((data) => {
