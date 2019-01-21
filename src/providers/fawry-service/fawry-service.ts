@@ -118,6 +118,20 @@ createItem(token, item) {
 }
 
 
+createOrder(token, order) {
+  return new Promise((resolve, reject) => {
+
+    var url =  'http://localhost:4000/api/order/createOrder';
+    console.log(order);
+    this.httpClient.post(url, order, {headers:{'authorization':token}}).subscribe(data => {
+      resolve(data)
+    },
+      err => {
+        reject(err)
+      });
+  });
+
+}
 
 getItems(token) {
   return new Promise((resolve, reject) => {
@@ -146,5 +160,35 @@ getOrder() {
       });
   });
 }
+
+
+public addToCartMerchant(token, item)
+{
+  return new Promise((resolve, reject) => {
+    var url =  '/order/addToCartMerchant';
+    this.httpClient.post(url, item, {headers:{'authorization': token}}).subscribe(data => {
+      resolve(data)
+    },
+      err => {
+        reject(err)
+      });
+  });
+}
+
+
+public addToCartCustomer(token, item)
+{
+  return new Promise((resolve, reject) => {
+    var url =  '/order/addToCartCustomer';
+    this.httpClient.post(url, item, {headers:{'authorization': token}}).subscribe(data => {
+      resolve(data)
+    },
+      err => {
+        reject(err)
+      });
+  });
+}
+
+
 
 }

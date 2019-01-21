@@ -6,9 +6,8 @@ export class Service {
     token: string;
     isAuth: boolean;
     user_id: any;
-    semesters: any[]=[];
-    cart: Array<any>[];
-    orders: Array<any>[];
+    cart: any[];
+    orders: any[];
     isMerchant: boolean;
     
   constructor(private jwtHelper: JwtHelper) {
@@ -36,6 +35,7 @@ export class Service {
        // console.log(e);
         if(e == 'merchant'){
             this.user_id= data['merchant']['_id'];
+            this.cart = data['merchant']['cart'];
             this.isMerchant= true;
             console.log('user data: ', data['merchant']['_id']);         
         }
@@ -43,6 +43,7 @@ export class Service {
     
         if(e == 'customer') {
             this.user_id= data['customer']['_id'];
+            this.cart = data['customer']['cart'];
             console.log('user data: ', data['customer']['_id']);
             }
     }
@@ -56,16 +57,13 @@ export class Service {
         return this.isMerchant;
   }
 
-  public getCart()
-  {
-    return this.cart;
-  }
-
-  public addToCart(item: any) 
-  {
-    this.cart.push(item);
-  }
-
+ getCart() {
+   return this.cart;
+ }
+ setCart(cart) {
+   this.cart = cart;
+   console.log('updated cart: ', this.cart);
+ }
 
   public getOrders() {
     return this.orders;

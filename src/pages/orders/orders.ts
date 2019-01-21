@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Service } from '../../app/service';
+import { FawryServiceProvider } from '../../providers/fawry-service/fawry-service';
 
 /**
  * Generated class for the OrdersPage page.
@@ -17,7 +18,7 @@ import { Service } from '../../app/service';
 export class OrdersPage {
 
   orders: any[];
-  constructor(public navCtrl: NavController, public navParams: NavParams, public service: Service) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public service: Service, public fawryService: FawryServiceProvider) {
   
     this.getOrders();
   }
@@ -28,8 +29,10 @@ export class OrdersPage {
 
 
 
-
   getOrders() {
-   this.orders= this.service.getOrders();
+     this.fawryService.getOrder().then((data) => {
+           // this.orders = data;
+   });
+   console.log('order: ', this.orders);
   }
 }

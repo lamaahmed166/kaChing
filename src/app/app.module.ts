@@ -14,13 +14,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginPage } from '../pages/login/login';
 import { Service } from './service';
 import { JwtHelper } from 'angular2-jwt';
+import { OrdersPage } from '../pages/orders/orders';
+import { PlaceOrderPage } from '../pages/place-order/place-order';
 
 @NgModule({
   declarations: [
     MyApp,
     ItemDetailsPage,
     LoginPage,
-    ListPage
+    ListPage, 
+    OrdersPage,
+    PlaceOrderPage
   ],
   imports: [
     BrowserModule,
@@ -33,7 +37,9 @@ import { JwtHelper } from 'angular2-jwt';
     MyApp,
     ItemDetailsPage,
     LoginPage,
-    ListPage
+    OrdersPage,
+    ListPage, 
+    PlaceOrderPage
   ],
   providers: [
     StatusBar,
