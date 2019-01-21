@@ -1,4 +1,4 @@
-<ion-menu [content]="content">
+<ion-menu id="myMenu" menuType= "overlay"[content]="content">
 
   <ion-header>
     <ion-toolbar>
@@ -16,4 +16,4 @@
 
 </ion-menu>
 
-<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
+<ion-nav [root]="rootPage" danger #content swipeBackEnabled="false"></ion-nav>

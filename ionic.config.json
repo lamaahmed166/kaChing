@@ -1,5 +1,7 @@
 {
   "name": "ka-ching",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular"
 }

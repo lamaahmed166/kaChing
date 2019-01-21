@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { NavController, NavParams } from 'ionic-angular';
+import { Service } from '../../app/service';
 
 
 @Component({
@@ -9,9 +10,14 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class ItemDetailsPage {
   selectedItem: any;
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public service: Service) {
     // If we navigated to this page, we will have an item available as a nav param
     this.selectedItem = navParams.get('item');
+  }
+
+
+  addToCart()
+  {
+    this.service.addToCart(this.selectedItem);
   }
 }
